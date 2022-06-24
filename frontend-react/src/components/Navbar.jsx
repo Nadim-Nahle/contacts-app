@@ -7,7 +7,7 @@ const Navbar = () => {
   // Iterate over nav items to add into UI
   const navItems = [
     { link: "", name: "Login" },
-    { link: "", name: "Signup" },
+    { link: "/register", name: "Signup" },
   ];
   return (
     <nav className="top-bar">

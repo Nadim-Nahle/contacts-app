@@ -23,7 +23,6 @@ ul {
 }
 
 .nav-items {
-  padding-right: 55px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -52,3 +51,66 @@ ul {
   border-radius: 40px;
 }
 
+/* REGISTER */
+.newform{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background-color: #3a27e6;
+  color: rgb(238, 238, 238);
+  font-size: 20px;
+  max-width: 50%;
+  border-radius: 500px;
+}
+
+
+.txt_field{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+
+.txt_field input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 30px;
+  background: none;
+  outline: none;
+}
+.form-centre{
+
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(77, 85, 85);
+  height: 600px;;
+  
+}
+.signup-form{
+  width:100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  min-width: 2000px;
+}
+.signup-btn{
+  margin-top: 20px;
+  font-size: 20px;
+  border-radius: 20px;
+  padding: 7px;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  border-color: red;
+}
+.newform >h1{
+  color: red;
+}
