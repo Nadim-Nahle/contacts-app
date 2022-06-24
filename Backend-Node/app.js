@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 
 
 //DB CONNECTION
-mongoose.connect(process.env.DB_CONNECTION, () => {
+mongoose.connect(DB_CONNECTION, () => {
     try{
         console.log('db connected');
     }
