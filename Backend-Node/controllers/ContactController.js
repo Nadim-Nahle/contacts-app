@@ -1,19 +1,20 @@
 const {addUserContact} = require('../services/ContactService')
+const Contact = require('../models/contact')
 
 //ADD CONTACT CONTROLLER
 async function addContact(req, res) {
     
+    const contact = new Contact({...req.body,owner:req.user._id})
     try{
-        console.log(req.body);
-
-
-        const addContactResult = await addUserContact(req.body);
-        return res.send({ contactID: addContactResult._id });
         
+        await contact.save()
+        res.status(201).send(contact)
     }
     catch(error){
-        console.log(error);
+        res.status(500).send(e.message)
     }
+    
+    
 }
 
 module.exports = {

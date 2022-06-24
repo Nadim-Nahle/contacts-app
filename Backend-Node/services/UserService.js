@@ -1,5 +1,5 @@
 const { use } = require('../app/routes');
-const User = require('../models/User')
+const User = require('../models/user')
 
 //REGISTER SERVICE
 async function addUser(body, hashPassword){

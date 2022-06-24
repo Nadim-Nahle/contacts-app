@@ -4,7 +4,7 @@ const bcrypt = require(`bcryptjs`);
 const jwt = require('jsonwebtoken');
 const TOKEN_SECRET = process.env.TOKEN_SECRET;
 
-const User = require('../models/User');
+const User = require('../models/user');
 
 //REGISTER CONTROLLER
 async function register(req, res) {
