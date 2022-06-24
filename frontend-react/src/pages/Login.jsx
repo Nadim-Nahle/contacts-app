@@ -1,20 +1,87 @@
 import React from "react";
+import { Navigate } from 'react-router-dom';
+import { useRef, useState, useEffect, useContext } from "react";
+import AuthContext from "../context/AuthProvider";
+import axios from '../api/axios';
+const REGISTER_URL ='/api/v1/auth/login';
 
-const Login = () => {
+
+
+const Register = () => {
+
+    
+    const { setAuth } = useContext(AuthContext);
+    const userRef = useRef();
+    const errRef = useRef();
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errMsg, setErrMsg] = useState('');
+
+
+
+    useEffect(() => {
+        userRef.current.focus();
+    }, [])
+
+    
+    useEffect(() => {
+        setErrMsg('');
+    }, [email, password])
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        try{
+            const response =await axios.post(REGISTER_URL, ({email, password})); 
+            console.log(response?.data);
+            
+            if(response){
+                console.log('navigating')
+                return (<Navigate to="/login" />);
+            }
+            setEmail('');
+            setPassword('');
+            
+            
+
+
+
+        } catch (err){
+            if(!err?.response){
+                setErrMsg('No server response');
+            }
+            else if (err.response?.status === 422){
+                setErrMsg('missing email or pssword')
+            }
+            else if (err.response?.status === 401){
+                setErrMsg('Incorrect email or password')
+            }
+            else{
+                setErrMsg('Login Failed');
+            }
+            errRef.current.focus();
+        }
+
+        
+    }
+
 
     return(
-        <div className="form-centre">
+        
+        <div className="form-centre" onSubmit={handleSubmit}>
             <form className="signup-form">
             <div className="newform">
-                <h1>Login Form</h1>
+            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                <h1>Register Form</h1>
                 <div className='txt_field'>
 
                     <label htmlFor="email">Email</label>
-                    <input type='email' id='email-login' className='form-control' name='email' />
+                    <input type='email' id='email-login' className='form-control' name='email' ref={userRef} onChange={(e) => setEmail(e.target.value)} value={email} />
 
                     <label htmlFor="email">Password</label>
-                    <input type='passowrd' id='password-login' className='form-control' name='email' />
-                    <button className="signup-btn">Signup</button>
+                    <input type='password' id='password-login' className='form-control' name='password' onChange={(e) => setPassword(e.target.value)}  value={password}/>
+                    <button className="signup-btn">Login</button>
                 </div>
             </div>
             
@@ -25,4 +92,4 @@ const Login = () => {
 }
 
 
-export default Login;
+export default Register;
