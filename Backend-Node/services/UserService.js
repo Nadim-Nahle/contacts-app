@@ -1,6 +1,7 @@
-const { use } = require('./app/routes');
-const User = require('./models/User')
+const { use } = require('../app/routes');
+const User = require('../models/User')
 
+//REGISTER SERVICE
 async function addUser(body, hashPassword){
     const {
         name,
@@ -16,6 +17,13 @@ async function addUser(body, hashPassword){
     return await user.save();
 }
 
+//LOGIN SERVICE
+async function getByEmail(email) {
+    return await User.findOne({
+      email
+    });
+  }
+
 module.exports = {
-    addUser,
+    addUser, getByEmail,
 }

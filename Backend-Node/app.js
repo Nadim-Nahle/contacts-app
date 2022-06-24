@@ -1,4 +1,5 @@
-const userRouter = require('./app/routes')
+const userRouter = require('./app/routes');
+const cors = require('cors');
 const express = require('express');
 const app= express();
 const mongoose = require('mongoose');
@@ -9,13 +10,24 @@ app.use(bodyParser.json())
 
 
 
-app.use('/api', userRouter);
+
 
 
 //DB CONNECTION
-mongoose.connect(DB_CONNECTION, () =>
-    console.log('db connected')
+mongoose.connect(process.env.DB_CONNECTION, () => {
+    try{
+        console.log('db connected');
+    }
+    catch(error){
+        console.log('error');
+    }
+}
+    
 )
+app.use(cors());
+app.use(express.json());
+
+app.use('/api', userRouter);
 
 app.listen(4000);
 
