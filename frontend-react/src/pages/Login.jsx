@@ -1,16 +1,21 @@
 import React from "react";
-import { Navigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useRef, useState, useEffect } from "react";
 import useAuth from "../hooks/useAuth";
 import axios from '../api/axios';
 const REGISTER_URL ='/api/v1/auth/login';
 
 
-
 const Register = () => {
 
     
     const { setAuth } = useAuth();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    
+
     const userRef = useRef();
     const errRef = useRef();
 
@@ -36,10 +41,8 @@ const Register = () => {
             const response =await axios.post(REGISTER_URL, ({email, password})); 
             console.log(response?.data);
             setAuth({email, password})
-            if(response){
-                console.log('navigating')
-                return (<Navigate to="/login" />);
-            }
+            navigate(from, { replace: true });
+            
             setEmail('');
             setPassword('');
             
