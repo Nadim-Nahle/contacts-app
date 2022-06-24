@@ -11,8 +11,8 @@ router.post('/v1/auth/register', register)
 router.post('/v1/auth/login', login)
 
 //CONTACT ROUTES
-router.post('/v1/addcontact', auth, addContact);
-router.get('/v1/contacts', auth, getContacts);
+router.post('/v1/auth/addcontact', auth, addContact);
+router.get('/v1/auth/contacts', auth, getContacts);
 
 
 module.exports = router;
