@@ -6,8 +6,10 @@ const Navbar = () => {
   const location = useLocation();
   // Iterate over nav items to add into UI
   const navItems = [
+    { link: "/contact", name: "Contacts" },
     { link: "/login", name: "Login" },
     { link: "/register", name: "Signup" },
+    
   ];
   return (
     <nav className="top-bar">
