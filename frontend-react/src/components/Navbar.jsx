@@ -17,6 +17,7 @@ const Navbar = () => {
             <NavLink key={index} to={navItem.link}>
               <li>{navItem.name}</li>
             </NavLink>
+            
           );
         })}
         {location.pathname.includes("auth") && (
