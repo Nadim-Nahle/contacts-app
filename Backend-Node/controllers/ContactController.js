@@ -7,7 +7,7 @@ async function addContact(req, res) {
         console.log(req.body);
 
 
-        const addContactResult = await addUser(req.body);
+        const addContactResult = await addUserContact(req.body);
         return res.send({ contactID: addContactResult._id });
         
     }
