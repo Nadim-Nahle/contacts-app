@@ -1,4 +1,5 @@
 import {Routes, Route } from 'react-router-dom';
+import RequireAuth from './components/RequireAuth';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
@@ -16,7 +17,9 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
 
           {/*PROTECTED ROUTES*/}
-          <Route path="/contact" element={<Contact />}></Route>
+          <Route element={<RequireAuth />}>
+            <Route path="/contact" element={<Contact />}></Route>
+          </Route>
 
           {/*404 ROUTE*/}
           <Route path="/error" element={<Missing />}></Route>

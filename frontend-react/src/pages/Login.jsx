@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate } from 'react-router-dom';
-import { useRef, useState, useEffect, useContext } from "react";
-import AuthContext from "../context/AuthProvider";
+import { useRef, useState, useEffect } from "react";
+import useAuth from "../hooks/useAuth";
 import axios from '../api/axios';
 const REGISTER_URL ='/api/v1/auth/login';
 
@@ -10,7 +10,7 @@ const REGISTER_URL ='/api/v1/auth/login';
 const Register = () => {
 
     
-    const { setAuth } = useContext(AuthContext);
+    const { setAuth } = useAuth();
     const userRef = useRef();
     const errRef = useRef();
 
@@ -35,7 +35,7 @@ const Register = () => {
         try{
             const response =await axios.post(REGISTER_URL, ({email, password})); 
             console.log(response?.data);
-            
+            setAuth({email, password})
             if(response){
                 console.log('navigating')
                 return (<Navigate to="/login" />);
