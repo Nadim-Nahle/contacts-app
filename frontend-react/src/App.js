@@ -6,6 +6,7 @@ import Contact from './pages/Contact';
 import Layout from './components/Layout';
 import Missing from './pages/Missing';
 import Landing from "./pages/Landing";
+import GetContact from './components/GetContact';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/contacts" element={<GetContact />}></Route>
           {/*PROTECTED ROUTES*/}
           <Route element={<RequireAuth />}>
             

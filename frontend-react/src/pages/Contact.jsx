@@ -64,7 +64,7 @@ useEffect(() => {
                 <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                 <div className='txt_field'>
 
-                    <label htmlFor="email">fname</label>
+                    <label htmlFor="email">Full Name</label>
                     <input type='fname' id='fname-login' className='form-control' name='fname'  onChange={(e) => setFname(e.target.value)} value={fname} ref={userRef} />
 
                     <label htmlFor="email">Phone</label>
@@ -73,7 +73,7 @@ useEffect(() => {
                     <label htmlFor="email">Email</label>
                     <input type='email' id='email-login' className='form-control' name='email'  onChange={(e) => setEmail(e.target.value)} value={email} />
 
-                    <label htmlFor="email">relation</label>
+                    <label htmlFor="email">Relation Status</label>
                     <input type='text' id='relation-login' className='form-control' name='relation' onChange={(e) => setRelation(e.target.value)}  value={relation}/>
                     <button className="signup-btn">Add</button>
                 </div>
