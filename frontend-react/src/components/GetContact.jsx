@@ -7,7 +7,7 @@ const CONTACT_URL ='/api/v1/auth/contacts';
 
 const GetContact = () => {
 
-    const[contacts, setContacts] = useState([null]);
+    const[contacts, setContacts] = useState([]);
     
     useEffect(()=>{
 

@@ -4,7 +4,7 @@ const Contacts = ({ contacts}) => {
   return (
     <ul>
         {contacts.map((contacts) => 
-        <li>
+        <li key={contacts._id}>
             name: {contacts.fname}{' '} 
             phone: {contacts.phone }{' '}
             email: {contacts.email }{' '}

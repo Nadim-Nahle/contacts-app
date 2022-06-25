@@ -13,12 +13,12 @@ const Contact = () => {
   const [relation, setRelation] = useState('');
   const [errMsg, setErrMsg] = useState('');
 
+  const [newContact, setNewContact] = useState(false);
+
   const userRef = useRef();
   const errRef = useRef();
 
-  useEffect(() => {
-    userRef.current.focus();
-}, [])
+  
 
 useEffect(() => {
   setErrMsg('');
@@ -35,6 +35,7 @@ useEffect(() => {
       }); 
 
       console.log(response?.data)
+      alert('Contact Added!')
     }
     catch(err){
       if(!err?.response){
@@ -56,7 +57,11 @@ useEffect(() => {
 
 
   return (
+    <>
+    
     <div className="form-centre" onSubmit={handleSubmit}>
+            <button className="show-btn" onClick={() => setNewContact(!newContact)}> Add New Contact </button>
+            {newContact ?
             <form className="signup-form">
             <div className="newform">
             
@@ -79,8 +84,13 @@ useEffect(() => {
                 </div>
             </div>
             
-            </form>
+            </form>:null}
+            
         </div>
+
+        
+    </>
+    
   )
 }
 
