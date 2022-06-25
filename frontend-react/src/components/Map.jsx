@@ -1,6 +1,7 @@
 import React from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import Marker from './Marker';
+import mapStyle from './mapStyle';
 
 const Map = () => {
     const{ isLoaded } = useJsApiLoader({ googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY });
@@ -10,6 +11,7 @@ const Map = () => {
   return (
     <NewMap />
   )
+
 
 }
 const center = {lat:33.377190, lng: 35.483590};
@@ -22,6 +24,7 @@ function NewMap(){
             <GoogleMap 
             zoom={10} 
             center={center}
+            options={{ mapId: "86d0672c46786789" }}
             mapContainerClassName="map-container">
                 <Marker />
             </GoogleMap>
@@ -31,4 +34,4 @@ function NewMap(){
 }
 
 
-export default Map
+export default Map;
