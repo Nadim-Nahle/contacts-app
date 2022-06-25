@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from '../api/axios';
+import Contacts from './Contacts';
 
 const CONTACT_URL ='/api/v1/auth/contacts';
 
@@ -25,7 +26,7 @@ const GetContact = () => {
 
     return (
         <div>
-            {contacts ? <div>Contacts</div> : <div>No Contacts</div>}
+            {contacts ? <Contacts contacts={contacts}/> : <div>No Contacts</div>}
         </div>
 
     )
