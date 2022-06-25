@@ -32,4 +32,4 @@ const GetContact = () => {
     )
 }
 
-export default GetContact
+export default GetContact;

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useRef, useState, useEffect } from "react";
 import axios from '../api/axios';
+import GetContact from '../components/GetContact';
 
 const ADDCONTACT_URL ='/api/v1/auth/addcontact';
 
@@ -14,6 +15,7 @@ const Contact = () => {
   const [errMsg, setErrMsg] = useState('');
 
   const [newContact, setNewContact] = useState(false);
+  const [showContact, setShowContact] = useState(false);
 
   const userRef = useRef();
   const errRef = useRef();
@@ -22,7 +24,8 @@ const Contact = () => {
 
 useEffect(() => {
   setErrMsg('');
-}, [fname, email, phone])
+}, [fname, email, phone]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,10 +61,12 @@ useEffect(() => {
 
   return (
     <>
-    
+    <div id="show-btn">
+    <button className="show-btn" onClick={() => {setNewContact(!newContact); setShowContact(!showContact)}}>{showContact ? 'Show Contacts' : 'Add new Contacts'} </button>
+    </div> 
+    {newContact ?
     <div className="form-centre" onSubmit={handleSubmit}>
-            <button className="show-btn" onClick={() => setNewContact(!newContact)}> Add New Contact </button>
-            {newContact ?
+      
             <form className="signup-form">
             <div className="newform">
             
@@ -84,9 +89,9 @@ useEffect(() => {
                 </div>
             </div>
             
-            </form>:null}
+            </form>
             
-        </div>
+        </div>:<GetContact />}
 
         
     </>
