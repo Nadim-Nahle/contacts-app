@@ -17,10 +17,10 @@ function App() {
           <Route path="/" element={<Landing />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
-
+          <Route path="/contact" element={<Contact />}></Route>
           {/*PROTECTED ROUTES*/}
           <Route element={<RequireAuth />}>
-            <Route path="/contact" element={<Contact />}></Route>
+            
           </Route>
 
           {/*404 ROUTE*/}

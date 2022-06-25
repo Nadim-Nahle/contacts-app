@@ -3,8 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useRef, useState, useEffect } from "react";
 import useAuth from "../hooks/useAuth";
 import axios from '../api/axios';
-const REGISTER_URL ='/api/v1/auth/login';
 
+const REGISTER_URL ='/api/v1/auth/login';
 
 const Register = () => {
 

@@ -11,7 +11,7 @@ async function addContact(req, res) {
         res.status(201).send(contact)
     }
     catch(error){
-        res.status(500).send(e.message)
+        res.status(500).send(error.message)
     }   
     
 }

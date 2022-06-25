@@ -112,7 +112,10 @@ ul {
   border-color: red;
 }
 .newform >h1{
-  color: red;
+  color: rgb(0, 0, 0);
+}
+.newform >p{
+  color: rgb(255, 0, 0);
 }
 
 /* MISSING PAGE */
