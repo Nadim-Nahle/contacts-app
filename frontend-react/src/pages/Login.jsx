@@ -39,15 +39,15 @@ const Register = () => {
         
         try{
             const response =await axios.post(REGISTER_URL, ({email, password})); 
-            console.log(response?.data);
+            //console.log(response?.data.secret_token);
+            const jwt = (response?.data.secret_token);
+            localStorage.setItem('token', jwt);
+            //console.log(jwt)
+
             setAuth({email, password})
             navigate(from, { replace: true });
             setEmail('');
             setPassword('');
-            
-            
-
-
 
         } catch (err){
             if(!err?.response){
