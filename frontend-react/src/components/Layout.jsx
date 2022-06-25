@@ -5,8 +5,11 @@ const Layout = () => {
     return (
         <>
             <Navbar />
-            <main className="App">           
+            
+            <main className="App">   
+                   
                 <Outlet />
+                
             </main>
         </>
         

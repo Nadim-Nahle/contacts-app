@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Contact from './pages/Contact';
 import Layout from './components/Layout';
 import Missing from './pages/Missing';
+import Landing from "./pages/Landing";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           {/*PUBLIC ROUTES*/}
+          <Route path="/" element={<Landing />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
 
