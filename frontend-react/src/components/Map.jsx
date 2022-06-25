@@ -1,5 +1,6 @@
 import React from 'react';
-import { GoogleMap, useJsApiLoader, MarkerF } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import Marker from './Marker';
 
 const Map = () => {
     const{ isLoaded } = useJsApiLoader({ googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY });
@@ -22,7 +23,7 @@ function NewMap(){
             zoom={10} 
             center={center}
             mapContainerClassName="map-container">
-                <MarkerF position={{lat:33.377190, lng: 35.483590}}/>
+                <Marker />
             </GoogleMap>
         </div>
         
