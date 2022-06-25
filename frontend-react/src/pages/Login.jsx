@@ -42,7 +42,6 @@ const Register = () => {
             console.log(response?.data);
             setAuth({email, password})
             navigate(from, { replace: true });
-            
             setEmail('');
             setPassword('');
             

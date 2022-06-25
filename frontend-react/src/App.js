@@ -22,7 +22,7 @@ function App() {
           </Route>
 
           {/*404 ROUTE*/}
-          <Route path="/error" element={<Missing />}></Route>
+          <Route path="*" element={<Missing />}></Route>
         </Route>
         
       </Routes>
