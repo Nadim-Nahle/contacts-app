@@ -91,7 +91,7 @@ useEffect(() => {
             
             </form>
             
-        </div>:<GetContact />}
+        </div>: <GetContact />}
 
         
     </>
