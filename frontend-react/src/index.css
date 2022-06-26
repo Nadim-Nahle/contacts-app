@@ -92,6 +92,7 @@ ul {
   justify-content: center;
   background-color: rgb(77, 85, 85);
   height: 600px;;
+  flex-direction: column;
   
 }
 .signup-form{
@@ -186,11 +187,16 @@ padding-top: 3rem;
 /*LEAFLET PAGE*/
 .leaflet-container{
   width: 50vw;
-  height: 40vh;
+  height: 60vh;
 }
 
 .map-center{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+.map-center >h1{
+  padding-bottom: 20px;
 }
