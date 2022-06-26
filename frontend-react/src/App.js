@@ -8,6 +8,7 @@ import Missing from './pages/Missing';
 import Landing from "./pages/Landing";
 import GetContact from './components/GetContact';
 import Map from './components/Map';
+import MyComponent from './components/test-map'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/contacts" element={<GetContact />}></Route>
           <Route path="/map" element={<Map />}></Route>
+          <Route path="/maps" element={<MyComponent />}></Route>
           {/*PROTECTED ROUTES*/}
           <Route element={<RequireAuth />}>
             

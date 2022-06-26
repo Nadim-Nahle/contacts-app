@@ -1,7 +1,6 @@
 import React from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import Marker from './Marker';
-import mapStyle from './mapStyle';
 
 const Map = () => {
     const{ isLoaded } = useJsApiLoader({ googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY });
