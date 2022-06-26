@@ -13,6 +13,8 @@ const Contact = () => {
   const [fname, setFname] = useState('');
   const [phone, setPhone] = useState('');
   const [relation, setRelation] = useState('');
+  const [lat, setLat] = useState('');
+  const [lng, seLng] = useState('');
   const [errMsg, setErrMsg] = useState('');
 
   const [map, setMap] = useState(false);
@@ -36,10 +38,16 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     var jwt = localStorage.getItem('token');
+    var lat = localStorage.getItem('lat');
+    var lng = localStorage.getItem('lng');
+
+    //console.log(lat);
+    //console.log(lng);
     try{
 
-      const response = await axios.post(ADDCONTACT_URL, ({fname, phone, email, relation}),
+      const response = await axios.post(ADDCONTACT_URL, ({fname, phone, email, relation, lat, lng}),
       {
         headers: {'Authorization': 'Bearer '+jwt}
       }); 
