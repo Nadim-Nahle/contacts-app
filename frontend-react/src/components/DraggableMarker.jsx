@@ -21,6 +21,9 @@ const DraggableMarker = () => {
               const marker = markerRef.current
               if (marker != null) {
                 setPosition(marker.getLatLng())
+                var position = ((marker.getLatLng()))
+                localStorage.setItem('location', position)
+                console.log(position)
               }
             },
           }),

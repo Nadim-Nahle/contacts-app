@@ -3,7 +3,6 @@ import DraggableMarker from "./DraggableMarker";
 import { MapContainer, TileLayer, } from "react-leaflet";
 
 
-
 const Leaflet = () => {
 
 
@@ -16,7 +15,6 @@ const Leaflet = () => {
         />
         
         <DraggableMarker />
-       
         </MapContainer>
     );
 };
