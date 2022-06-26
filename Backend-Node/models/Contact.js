@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
-
+const Double = require('@mongoosejs/double');
 //CONTACT SCHEMA
 const contactSchema = new mongoose.Schema({
+
   fname: {
     type: String,
     required: true,
     min: 6,
     max: 255,
   },
+
   phone: {
     type: String,
     required: true,
@@ -15,6 +17,7 @@ const contactSchema = new mongoose.Schema({
     max: 255,
     unique: true,
   },
+
   email: {
     type: String,
     required: false,
@@ -22,16 +25,27 @@ const contactSchema = new mongoose.Schema({
     max: 255,
     unique: true,
   },
+
   relation: {
     type: String,
     required: false,
     min: 2,
     max: 1024,
   },
+
   date: {
     type: Date,
     default: Date.now,
   },
+
+  lat: {
+    type: Number,
+  },
+
+  lng: {
+    type: Number,
+  },
+
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "user",

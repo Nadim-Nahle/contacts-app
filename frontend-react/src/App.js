@@ -8,7 +8,6 @@ import Missing from './pages/Missing';
 import Landing from "./pages/Landing";
 import GetContact from './components/GetContact';
 import Leaflet from './components/Leaflet';
-import Popup from './components/Popup';
 
 
 function App() {
@@ -24,7 +23,7 @@ function App() {
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/contacts" element={<GetContact />}></Route>
           <Route path="/lef" element={<Leaflet />}></Route>
-          <Route path="/pop" element={<Popup />}></Route>
+          
           
           {/*PROTECTED ROUTES*/}
           <Route element={<RequireAuth />}>
