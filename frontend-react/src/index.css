@@ -197,3 +197,9 @@ padding-top: 3rem;
 .map-centre h1{ 
   margin-top: 3%;
 }
+
+/*LEAFLET PAGE*/
+.leaflet-container{
+  width: 100vw;
+  height: 100vh;
+}
