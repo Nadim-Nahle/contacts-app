@@ -11,7 +11,7 @@ const Contacts = ({ contacts}) => {
                 setFilter(e.target.value);
             }}/>
         </div>
-        <ul>  
+        <ul className='ul'>  
             {contacts.filter(val=>{
               if(filter === '') {
                 return val;
@@ -26,10 +26,14 @@ const Contacts = ({ contacts}) => {
               
             }).map((contacts) =>
             <li key={contacts._id}>
-                name: {contacts.fname}{' '} 
-                phone: {contacts.phone }{' '}
-                email: {contacts.email }{' '}
-                reation status: {contacts.relation}{' '}
+              <span class='style'>
+                name: {contacts.fname}{' -- '} 
+                phone: {contacts.phone }{' -- '}
+                email: {contacts.email }{' -- '}
+                reation status: {contacts.relation}
+                {<button>show location</button>}
+                
+                </span>
             </li>
             )}
         </ul>

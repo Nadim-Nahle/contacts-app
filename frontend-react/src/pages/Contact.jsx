@@ -80,6 +80,7 @@ const Contact = () => {
     <button className="show-btn" onClick={() => {setNewContact(!newContact); setShowContact(!showContact)}}>{showContact ? 'Show Contacts' : 'Add new Contacts'} </button>
     </div> 
     {newContact ?
+    !map?
     <div className="form-centre" >
       
             <form onClick={handleRefresh} className="signup-form">
@@ -101,14 +102,14 @@ const Contact = () => {
                     <label htmlFor="email">Relation Status</label>
                     <input type='text' id='relation-login' className='form-control' name='relation' onChange={(e) => setRelation(e.target.value)}  value={relation}/>
                     <button onClick={handleSubmit} className="signup-btn">Add</button>
-                    <button onClick={() => {setMap(!map); setshowMap(!showMap)}}> {showMap ? 'finsih' : 'Add location'} </button>
+                    <button  className="locs-btn" onClick={() => {setMap(!map); setshowMap(!showMap)}}> {showMap ? 'finsih' : 'Add location'} </button>
                 </div>
             </div>
 
             
             </form>
             
-        </div>: <GetContact />}
+        </div> :<button className="loc-btn" onClick={() => {setMap(!map); setshowMap(!showMap)}}>finish</button>: <GetContact />}
         {
           map?
           <Leaflet /> :  'none'
