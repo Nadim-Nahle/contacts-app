@@ -2,6 +2,7 @@ import React from 'react'
 import { useRef, useState, useEffect } from "react";
 import axios from '../api/axios';
 import GetContact from '../components/GetContact';
+import Leaflet from '../components/Leaflet';
 
 const ADDCONTACT_URL ='/api/v1/auth/addcontact';
 
@@ -14,6 +15,9 @@ const Contact = () => {
   const [relation, setRelation] = useState('');
   const [errMsg, setErrMsg] = useState('');
 
+  const [map, setMap] = useState(false);
+  const [showMap, setshowMap] = useState(false);
+
   const [newContact, setNewContact] = useState(false);
   const [showContact, setShowContact] = useState(false);
 
@@ -22,10 +26,13 @@ const Contact = () => {
 
   
 
-useEffect(() => {
-  setErrMsg('');
-}, [fname, email, phone]);
+  useEffect(() => {
+    setErrMsg('');
+  }, [fname, email, phone]);
 
+  const handleRefresh = async (e) => {
+    e.preventDefault();
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -65,9 +72,9 @@ useEffect(() => {
     <button className="show-btn" onClick={() => {setNewContact(!newContact); setShowContact(!showContact)}}>{showContact ? 'Show Contacts' : 'Add new Contacts'} </button>
     </div> 
     {newContact ?
-    <div className="form-centre" onSubmit={handleSubmit}>
+    <div className="form-centre" >
       
-            <form className="signup-form">
+            <form onClick={handleRefresh} className="signup-form">
             <div className="newform">
             
                 <h1>Create Contact</h1>
@@ -85,14 +92,20 @@ useEffect(() => {
 
                     <label htmlFor="email">Relation Status</label>
                     <input type='text' id='relation-login' className='form-control' name='relation' onChange={(e) => setRelation(e.target.value)}  value={relation}/>
-                    <button className="signup-btn">Add</button>
+                    <button onClick={handleSubmit} className="signup-btn">Add</button>
+                    <button onClick={() => {setMap(!map); setshowMap(!showMap)}}> {showMap ? 'finsih' : 'Add location'} </button>
                 </div>
             </div>
+
             
             </form>
             
         </div>: <GetContact />}
-
+        {
+          map?
+          <Leaflet /> :  'none'
+        }
+        
         
     </>
     
