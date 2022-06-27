@@ -44,7 +44,7 @@ const Register = () => {
             localStorage.setItem('token', jwt);
             //console.log(jwt)
 
-            setAuth({email, password})
+            setAuth({email, password, jwt})
             navigate(from, { replace: true });
             setEmail('');
             setPassword('');

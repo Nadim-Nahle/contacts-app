@@ -26,10 +26,10 @@ function App() {
           
           {/*PROTECTED ROUTES*/}
           <Route element={<RequireAuth />}>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/contacts" element={<GetContact />}></Route>
-          <Route path="/lef" element={<Leaflet />}></Route>
-          <Route path="/newmap" element={<NewMap />}></Route>
+          <Route path="/auth/contact" element={<Contact />}></Route>
+          <Route path="/auth/contacts" element={<GetContact />}></Route>
+          <Route path="/auth/lef" element={<Leaflet />}></Route>
+          <Route path="/auth/newmap" element={<NewMap />}></Route>
           </Route>
 
           {/*404 ROUTE*/}
