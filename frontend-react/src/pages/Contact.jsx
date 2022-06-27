@@ -112,7 +112,7 @@ const Contact = () => {
         </div> :<button className="loc-btn" onClick={() => {setMap(!map); setshowMap(!showMap)}}>finish</button>: <GetContact />}
         {
           map?
-          <Leaflet /> :  'none'
+          <Leaflet /> :  '.'
         }
         
         

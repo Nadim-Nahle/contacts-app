@@ -28,12 +28,28 @@ return (
 
 }
 
+
 const Contacts = ({ contacts}) => {
 
   const [map, setMap] = useState(false);
   const [showMap, setshowMap] = useState(false);
     //console.log(contacts)
     const[filter, setFilter] = useState('');
+    
+
+    function deleteContact(id){
+      var jwt = localStorage.getItem('token');
+      console.log(jwt)
+      fetch(`http://localhost:4000/api/v1/auth/delete/${id}`,{
+        method:'DELETE',
+        headers: {'Authorization': 'Bearer ' +jwt}
+      }).then((result)=>{
+        result.json().then((resp)=>{
+          console.warn(resp)
+        })
+      })
+    } 
+       
 
   return (
     <>  <div className="search">
@@ -53,15 +69,18 @@ const Contacts = ({ contacts}) => {
                 val.email.toLowerCase().includes(filter.toLowerCase()) ||
                 val.relation.toLowerCase().includes(filter.toLowerCase()) 
               )
+              
                 return val;
               
             }).map((contacts) =>
             <li key={contacts._id}>
-              <span class='style'>
+              <span className='style'>
                 name: {contacts.fname}{' -- '} 
                 phone: {contacts.phone }{' -- '}
                 email: {contacts.email }{' -- '}
                 reation status: {contacts.relation}
+                <button onClick={()=>deleteContact(contacts._id)}>Delete</button>
+                <br></br>
                 {<button  className="locs-btn" onClick={() => {setMap(!map); setshowMap(!showMap)}}> {showMap ? 'finsih' : 'show location'} </button>}
                 {
                   map ? 
@@ -78,5 +97,6 @@ const Contacts = ({ contacts}) => {
     
   )
 }
+
 
 export default Contacts
