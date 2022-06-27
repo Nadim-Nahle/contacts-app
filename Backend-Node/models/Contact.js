@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Double = require('@mongoosejs/double');
 //CONTACT SCHEMA
 const contactSchema = new mongoose.Schema({
 

@@ -29,12 +29,44 @@ async function getContacts(req, res) {
     catch(error){
         res.status(400).send(error.message);
     }
+         
     
-      
+}
+
+//DELETE CONTACT CONTROLLER
+async function deleteContacts(req, res) {
+    try{
+        const contact = await Contact.find({owner:req.user._id})
+        if(!contact){
+            return res.status(404).send()
+        }
+        res.status(200).send(contact)
+    }
+    catch(error){
+        res.status(400).send(error.message);
+    }
+         
+    
+}
+//UPDATE CONTACT CONTROLLER
+async function updateContact(req, res) {
+    try{
+        const contact = await Contact.findById(req.params.id)
+        if(!contact){
+            return res.status(404).send()
+        }
+        Object.assign(contact, req.body);
+        contact.save();
+        res.send({data:contact})
+    }
+    catch(error){
+        res.status(400).send(error.message);
+    }
+         
     
 }
 
 
 module.exports = {
-    addContact, getContacts
+    addContact, getContacts, deleteContacts, updateContact
 }

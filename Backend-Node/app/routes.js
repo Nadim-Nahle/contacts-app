@@ -1,6 +1,6 @@
 const express = require('express');
 const { register, login } = require('../controllers/UserController');
-const { addContact, getContacts } = require('../controllers/ContactController');
+const { addContact, getContacts, deleteContacts, updateContact } = require('../controllers/ContactController');
 const router =  express.Router();
 const auth = require('../middleware/AuthMiddleware')
 
@@ -13,6 +13,8 @@ router.post('/v1/auth/login', login)
 //CONTACT ROUTES
 router.post('/v1/auth/addcontact', auth, addContact);
 router.get('/v1/auth/contacts', auth, getContacts);
+router.get('/v1/auth/deletecontacts', auth, deleteContacts);
+router.patch('/v1/auth/update/:id', auth, updateContact);
 
 
 module.exports = router;
