@@ -13,7 +13,7 @@ router.post('/v1/auth/login', login)
 //CONTACT ROUTES
 router.post('/v1/auth/addcontact', auth, addContact);
 router.get('/v1/auth/contacts', auth, getContacts);
-router.get('/v1/auth/deletecontacts', auth, deleteContacts);
+router.delete('/v1/auth/delete/:id', auth, deleteContacts);
 router.patch('/v1/auth/update/:id', auth, updateContact);
 
 

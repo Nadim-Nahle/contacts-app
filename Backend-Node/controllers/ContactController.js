@@ -36,11 +36,12 @@ async function getContacts(req, res) {
 //DELETE CONTACT CONTROLLER
 async function deleteContacts(req, res) {
     try{
-        const contact = await Contact.find({owner:req.user._id})
+        const contact = await Contact.findById(req.params.id);
         if(!contact){
             return res.status(404).send()
         }
-        res.status(200).send(contact)
+        await contact.remove();
+        res.status(200).send({data: true })
     }
     catch(error){
         res.status(400).send(error.message);
