@@ -2,13 +2,15 @@ import React from 'react'
 import { MapContainer, TileLayer,Marker,Popup } from "react-leaflet";
 const NewMap = () => {
 
+    var lat = localStorage.getItem('lat');
+    var lng = localStorage.getItem('lng');
 
-    const position = [51.505, -0.09]
+    const position = [lat, lng]
 
 
   return (
-    
-    <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
+    < div className="newmap-center">
+    <MapContainer center={position} zoom={13} scrollWheelZoom={true}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -19,7 +21,7 @@ const NewMap = () => {
       </Popup>
     </Marker>
   </MapContainer>
-
+    </div>
   )
 }
 
