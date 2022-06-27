@@ -8,6 +8,7 @@ import Missing from './pages/Missing';
 import Landing from "./pages/Landing";
 import GetContact from './components/GetContact';
 import Leaflet from './components/Leaflet';
+import NewMap from './components/NewMap';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/contacts" element={<GetContact />}></Route>
           <Route path="/lef" element={<Leaflet />}></Route>
+          <Route path="/newmap" element={<NewMap />}></Route>
           
           
           {/*PROTECTED ROUTES*/}
