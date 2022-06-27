@@ -9,6 +9,7 @@ import Landing from "./pages/Landing";
 import GetContact from './components/GetContact';
 import Leaflet from './components/Leaflet';
 import NewMap from './components/NewMap';
+import Google from './components/Google';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Landing />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/google" element={<Google/>}></Route>
           
           
           
