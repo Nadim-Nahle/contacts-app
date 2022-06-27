@@ -13,8 +13,7 @@ const Contact = () => {
   const [fname, setFname] = useState('');
   const [phone, setPhone] = useState('');
   const [relation, setRelation] = useState('');
-  const [lat, setLat] = useState('');
-  const [lng, seLng] = useState('');
+
   const [errMsg, setErrMsg] = useState('');
 
   const [map, setMap] = useState(false);

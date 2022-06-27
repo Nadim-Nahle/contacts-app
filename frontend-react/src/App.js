@@ -21,15 +21,15 @@ function App() {
           <Route path="/" element={<Landing />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/contacts" element={<GetContact />}></Route>
-          <Route path="/lef" element={<Leaflet />}></Route>
-          <Route path="/newmap" element={<NewMap />}></Route>
+          
           
           
           {/*PROTECTED ROUTES*/}
           <Route element={<RequireAuth />}>
-            
+          <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/contacts" element={<GetContact />}></Route>
+          <Route path="/lef" element={<Leaflet />}></Route>
+          <Route path="/newmap" element={<NewMap />}></Route>
           </Route>
 
           {/*404 ROUTE*/}
