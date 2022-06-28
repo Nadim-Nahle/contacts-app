@@ -6,8 +6,8 @@ import {  Marker, Popup } from "react-leaflet";
 
 
 const center = {
-  lat: 51.505,
-  lng: -0.09,
+  lat: 33.89058508065576, 
+  lng: 35.5052868259433
 }
 
 const DraggableMarker = () => {

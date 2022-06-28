@@ -3,6 +3,8 @@ import { Navigate } from 'react-router-dom';
 import { useRef, useState, useEffect, useContext } from "react";
 import AuthContext from "../context/AuthProvider";
 import axios from '../api/axios';
+import Google from '../components/Google';
+
 const REGISTER_URL ='/api/v1/auth/register';
 
 
@@ -86,6 +88,7 @@ const Register = () => {
                     <label htmlFor="email">Password</label>
                     <input type='password' id='password-login' className='form-control' name='password' onChange={(e) => setPassword(e.target.value)}  value={password}/>
                     <button className="signup-btn">Signup</button>
+                    <Google />
                 </div>
             </div>
             

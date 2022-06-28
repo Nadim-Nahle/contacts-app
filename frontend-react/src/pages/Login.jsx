@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useRef, useState, useEffect } from "react";
 import useAuth from "../hooks/useAuth";
 import axios from '../api/axios';
+import Google from '../components/Google';
 
 const LOGIN_URL ='/api/v1/auth/login';
 
@@ -84,6 +85,7 @@ const Register = () => {
                     <label htmlFor="email">Password</label>
                     <input type='password' id='password-login' className='form-control' name='password' onChange={(e) => setPassword(e.target.value)}  value={password}/>
                     <button className="signup-btn">Login</button>
+                    
                 </div>
             </div>
             

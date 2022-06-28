@@ -100,8 +100,10 @@ const Contact = () => {
 
                     <label htmlFor="email">Relation Status</label>
                     <input type='text' id='relation-login' className='form-control' name='relation' onChange={(e) => setRelation(e.target.value)}  value={relation}/>
-                    <button onClick={handleSubmit} className="signup-btn">Add</button>
+                    
                     <button  className="locs-btn" onClick={() => {setMap(!map); setshowMap(!showMap)}}> {showMap ? 'finsih' : 'Add location'} </button>
+
+                    <button onClick={handleSubmit} className="signup-btn">Create</button>
                 </div>
             </div>
 

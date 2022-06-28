@@ -1,29 +1,42 @@
 import React from 'react'
 import { useRef, useState, useEffect } from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
 import jwt_decode from "jwt-decode"
 import axios from '../api/axios'
+import useAuth from "../hooks/useAuth";
+
+
 const REGISTER_URL ='/api/v1/auth/register';
 const LOGIN_URL ='/api/v1/auth/login';
 
 
 
-
 function Google() {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
-    const [name1, setName1] = useState({});
-    const [email1, setEmail1] = useState({});
+    
+    const { setAuth } = useAuth();
     
     function handleCallBackResponse(response){
 
         //console.log('ecncode jwt' + response.credential)
         var userObject = jwt_decode(response.credential)
-        var newemail = (userObject.email)
-        var newname = (userObject.given_name)
-        console.log(userObject.email);
-        setName1(newname);
-        setEmail1(newemail);
+        console.log(userObject)
+
         
-        name1 ?
+        localStorage.setItem('name',(userObject.given_name));
+        localStorage.setItem('email',(userObject.email));
+        
+
+        
+        
+        //console.log(userObject.email);
+        
+        const name = localStorage.getItem('name');
+         
+        name  ?
         
         handleSubmit() :
         <></>
@@ -31,15 +44,17 @@ function Google() {
     }
     const [errMsg, setErrMsg] = useState('');
     const errRef = useRef();
-    
+    //console.log(name)
+    //console.log(email)
 
     const handleSubmit = async (e) => {
        
-        
+        const name = localStorage.getItem('name');
+        const email = localStorage.getItem('email');
         var password = '123456';
-        const name = ((name1));
-        console.log(name)
-        const email = ((email1));
+        
+        console.log(name) 
+        
         console.log(email)
         try{
             const response =await axios.post(REGISTER_URL, ({name, email, password})); 
@@ -64,12 +79,17 @@ function Google() {
 
     const handleLogin= async (e) =>{
         var password = '123456';
-        const email = ((email1));
+        
+        const email = localStorage.getItem('email');
         try{
-            const response =await axios.post(LOGIN_URL, ({email, password})); 
-            if(response){
-                console.log('logged in')
-            }
+            const response =await axios.post(LOGIN_URL, ({email, password}));
+            const jwt = (response?.data.secret_token);
+            localStorage.setItem('token', jwt); 
+            
+            console.log('logged in')
+            setAuth({email, password})
+            navigate(from, { replace: true });
+            
         }
         catch (err){
             
