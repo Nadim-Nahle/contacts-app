@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import useAuth from "../hooks/useAuth";
 import axios from '../api/axios';
 
-const REGISTER_URL ='/api/v1/auth/login';
+const LOGIN_URL ='/api/v1/auth/login';
 
 const Register = () => {
 
@@ -38,7 +38,7 @@ const Register = () => {
         e.preventDefault();
         
         try{
-            const response =await axios.post(REGISTER_URL, ({email, password})); 
+            const response =await axios.post(LOGIN_URL, ({email, password})); 
             //console.log(response?.data.secret_token);
             const jwt = (response?.data.secret_token);
             localStorage.setItem('token', jwt);
