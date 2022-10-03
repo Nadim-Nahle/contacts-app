@@ -40,7 +40,7 @@ const Contacts = ({ contacts}) => {
     function deleteContact(id){
       var jwt = localStorage.getItem('token');
       console.log(jwt)
-      fetch(`http://localhost:4000/api/v1/auth/delete/${id}`,{
+      fetch(`https://contacts-app-full-stack.vercel.app/api/v1/auth/delete/${id}`,{
         method:'DELETE',
         headers: {'Authorization': 'Bearer ' +jwt}
       }).then((result)=>{
