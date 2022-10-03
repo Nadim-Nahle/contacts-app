@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const Users = require('../models/user');
+const Users = require('../models/User');
 const TOKEN_SECRET = process.env.TOKEN_SECRET;
 
 //AUTH MIDDLEWARE
