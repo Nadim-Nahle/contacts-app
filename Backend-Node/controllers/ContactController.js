@@ -1,5 +1,5 @@
 const {addUserContact} = require('../services/ContactService')
-const Contact = require('../models/contact')
+const Contact = require('../models/Contact')
 
 //ADD CONTACT CONTROLLER
 async function addContact(req, res) {
